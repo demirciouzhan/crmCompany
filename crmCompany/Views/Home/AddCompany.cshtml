@@ -1,0 +1,42 @@
+﻿@model SelectList
+ 
+<link rel="Stylesheet" type="text/css" href="~/css/StyleSheet.css">
+<h1> Add New Company</h1>
+<form asp-controller="Home" asp-action="GetDetails" method="post">
+    <table>
+        <tr>
+            <td>Company Name :</td>
+            <td><input name="txtName" type="text" /></td>
+        </tr>  
+        <tr>
+            <td colspan="2"><input name="Submit1" type="submit" value="submit" /></td>
+        </tr>
+    </table>
+</form>
+
+
+
+
+
+
+@*<form action="/" method="post">
+    <div class="form-group">
+        <label>DropdownList Multiple Select</label>
+        <label id="employees">
+            <span style="padding-right: 10px">Hepsini Seç / Temizle </span>
+            <input type="checkbox" id="hepsiniSec"><i></i>
+        </label>
+        <select name="Service[]"
+                id="select2"
+                multiple="multiple"
+                class="form-control"
+                asp-items="ViewBag.Services"></select>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary">Submit</button>
+    </div>
+</form>*@
+<br />
+<br />
+
+<h2 style="font-style:italic; color:red">@ViewBag.Result</h2>

@@ -1,0 +1,47 @@
+﻿@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@model SelectList
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <form method="post" asp-controller="Home" asp-action="AddServices">
+        <td class="col-4">
+            <label>Hizmet Seçiniz</label>
+        </td>
+        <td class="col-2">
+            <select id="ddlCustomers" name="FeaturesIds" asp-items="Model" multiple="multiple">
+                <option value="0">--Choose Serve--</option>
+            </select>
+        </td>
+
+        <br />
+        <br />
+        <input type="submit" value="Submit" asp-action="AddServicesDetail"/>
+        <label></label>
+        @if (ViewBag.Message != null)
+        {
+            <script type="text/javascript">
+                window.onload = function () {
+                    alert("@ViewBag.Message");
+                };
+            </script>
+        }
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                $("#ddlCustomers").select2();
+            });
+        </script>
+    </form>
+</body>
+</html>

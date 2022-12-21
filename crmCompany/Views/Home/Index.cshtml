@@ -1,0 +1,49 @@
+﻿
+@model IEnumerable<crmCompany.Models.Companys>
+@{
+    ViewData["Title"] = "Home Page";
+
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+    $(function(){
+    $("#Companys").change(function() {
+    var displaycourse=$("#Companys option:selected").text();
+    $("#txtresults").val(displaycourse);
+    })
+    })
+</script>
+HttpContext.Session.SetString("PrimaryNavigation", "First");
+<h1> COMPANIES</h1>
+<div class="row">
+    <div class="column col-4">
+        
+        @Html.DropDownList("Companys",null,"Seçiniz",new{@class="form-control"})
+    </div>
+    <div class="column col-2">
+         <input type="submit" value="Get Detail" /><br />
+    </div>
+</div>
+<p>
+  <input type="text" readonly="readonly" id="txtresults" />
+    <br />
+    <ul class="list-group">
+       @* @Html.DropDownList("txtresults", (IEnumerable<SelectListItem>)ViewBag.Companys, null, new { @class ="form-control" })*@
+        @foreach (var item in Model)
+        {
+           
+                 <li class="list-group-item">
+                    @item.Id.ToString();
+                
+                </li>
+          
+
+        }
+    </ul>
+</p>
+
+
+
+@*@Html.DropDownList("Service",null,"Seçiniz",new{@class="form-control"})*@
+
